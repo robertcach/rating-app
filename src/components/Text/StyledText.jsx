@@ -20,15 +20,20 @@ const styles = StyleSheet.create({
   subHeading: {
     fontSize: theme.fontSizes.subHeading,
   },
+  textAlignCenter: {
+    textAlign: theme.fontAlign.center,
+  },
 });
 
-const StyledText = ({ children, color, fontSize, fontWeight, ...restOfProps }) => {
+const StyledText = ({ children, align, color, fontSize, fontWeight, style, ...restOfProps }) => {
   const textStyles = [
     styles.text, // estilo que está siempre. Estilo base.
     color === 'primary' && styles.colorPrimary,
     color === 'secondary' && styles.colorSecondary,
     fontSize === 'subHeading' && styles.subHeading,
     fontWeight === 'bold' && styles.bold,
+    align === 'center' && styles.textAlignCenter,
+    style, // el componente tiene esas props para darle estilos, pero además puedo agregar otros estilos manualmente
   ];
 
   return (
