@@ -4,16 +4,15 @@ import StyledText from '../../Text/StyledText';
 const RepositoryItem = (props) => {
   return (
     <View key={props.id} style={styles.container}>
-      <StyledText big bold>
-        Id: {props.id}
+      <StyledText fontSize="subHeading" fontWeight="bold">
+        FullName: {props.fullName}
       </StyledText>
-      <StyledText blue>FullName: {props.fullName}</StyledText>
-      <StyledText bold>Description:{props.description}</StyledText>
-      <StyledText blue>Language: {props.language}</StyledText>
-      <StyledText small>Stars: {props.stargazersCount}</StyledText>
-      <StyledText small>Forks: {props.forksCount}</StyledText>
-      <StyledText small>Review: {props.reviewCount}</StyledText>
-      <StyledText small>Rating: {props.ratingAverage}</StyledText>
+      <StyledText>Description:{props.description}</StyledText>
+      <StyledText>Language: {props.language}</StyledText>
+      <StyledText>Stars: {props.stargazersCount}</StyledText>
+      <StyledText>Forks: {props.forksCount}</StyledText>
+      <StyledText>Review: {props.reviewCount}</StyledText>
+      <StyledText>Rating: {props.ratingAverage}</StyledText>
     </View>
   );
 };

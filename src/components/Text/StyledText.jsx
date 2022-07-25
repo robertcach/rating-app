@@ -1,34 +1,41 @@
 import { StyleSheet, Text } from 'react-native';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 12,
-    color: 'grey',
+    fontSize: theme.fontSizes.body,
+    color: theme.colors.textPrimary,
+    fontFamily: theme.fonts.main,
+    fontWeight: theme.fontWeights.normal,
+  },
+  colorPrimary: {
+    color: theme.colors.primary,
+  },
+  colorSecondary: {
+    color: theme.colors.textSecondary,
   },
   bold: {
-    fontWeight: 'bold',
+    fontWeight: theme.fontWeights.bold,
   },
-  blue: {
-    color: 'blue',
-  },
-  big: {
-    fontSize: 20,
-  },
-  small: {
-    fontSize: 10,
+  subHeading: {
+    fontSize: theme.fontSizes.subHeading,
   },
 });
 
-const StyledText = ({ blue, bold, children, big, small }) => {
+const StyledText = ({ children, color, fontSize, fontWeight, ...restOfProps }) => {
   const textStyles = [
     styles.text, // estilo que está siempre. Estilo base.
-    bold && styles.bold, // si tiene la prop "blue" utiliza los estilos de styles.blue
-    blue && styles.blue,
-    big && styles.big,
-    small && styles.small,
+    color === 'primary' && styles.colorPrimary,
+    color === 'secondary' && styles.colorSecondary,
+    fontSize === 'subHeading' && styles.subHeading,
+    fontWeight === 'bold' && styles.bold,
   ];
 
-  return <Text style={textStyles}>{children}</Text>;
+  return (
+    <Text style={textStyles} {...restOfProps}>
+      {children}
+    </Text>
+  );
 };
 
 export default StyledText;
