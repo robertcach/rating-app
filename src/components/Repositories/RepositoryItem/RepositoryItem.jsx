@@ -14,7 +14,7 @@ const RepositoryItem = (props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingBottom: 5,
+    paddingBottom: 30,
     paddingTop: 5,
   },
 });
